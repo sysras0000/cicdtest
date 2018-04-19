@@ -13,7 +13,7 @@ cd cicdtest
 
 ### Build Jenkins
 ```
-kubectl create -f jenkinsci-pod.yaml
+kubectl create -f jenkins.yaml
 ./add_jenkins_service.sh
 ```
 
