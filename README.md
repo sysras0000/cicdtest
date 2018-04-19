@@ -1,4 +1,10 @@
 # cicdtest
+Setting up the environment, all the things
+
+## Prereqs
+You'll need this stuff
+* a Google Cloud Platform account
+* PuTTy
 
 ```
 git clone https://github.com/sysras0000/cicdtest.git

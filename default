@@ -1,0 +1,15 @@
+
+upstream testapp {
+    server blog-01;
+    server blog-02;
+    server blog-03;
+}
+
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://testapp;
+	}
+
+}
