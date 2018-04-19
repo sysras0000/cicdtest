@@ -1,0 +1,24 @@
+---
+ version: '3'
+
+ services:
+         postgres:
+           build: postgres
+           ports:
+                - "5432:5432"
+           networks:
+                - db_nw
+         web_app:
+            build: web_app
+            networks:
+                - db_nw
+         proxy:
+            build: proxy_nginx
+            ports:
+                 - "8080:80"
+            networks:
+                - db_nw
+ networks:
+        db_nw:
+          driver: bridge
+         
