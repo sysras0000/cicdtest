@@ -1,4 +1,15 @@
 #!/bin/bash
-kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "create user panop with password 'letmein';"
-kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "create database panop;"
-kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "grant all privileges on database panop to panop;"
+kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "create role testuser with password 'testuser' LOGIN;"
+kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "create database devops;"
+kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "\c devops;"
+kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "create table student (name char(16) not null, status char(1));"
+kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "insert into student (name, status) values ('Jerry', 'E');"
+kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "insert into student (name, status) values ('Harsha', 'E');"
+kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "insert into student (name, status) values ('Dan', 'E');"
+kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "insert into student (name, status) values ('Richard', 'E');"
+kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "insert into student (name, status) values ('Sunil', 'E');"
+kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "insert into student (name, status) values ('Justin', 'E');"
+kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "insert into student (name, status) values ('BillyBob', 'E');"
+kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "insert into student (name, status) values ('Howard', 'E');"
+kubectl exec pgsql01 --stdin --tty -- psql -U postgres -c "grant insert, update, delete, select on table student to testuser;"
+
