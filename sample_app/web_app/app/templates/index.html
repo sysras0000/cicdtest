@@ -1,0 +1,28 @@
+<html>
+<body width="960px" align="center">
+<h1> Welcome to DevOps training class!! </h1>
+<div>
+ <p> List of students in the class room </p>
+ <table border="2" width="25%" align="center" cellpadding="1" cellspacing="1">
+  <tr bgcolor = "grey">
+    <th> Name </th>
+    <th> Status </th>
+  </tr>
+  {% for r in result %}
+  <tr> 
+     <td> {{ r.name }} </td>
+     <td> {{ r.status }} </td>
+  </tr>
+  {% endfor %}
+ </table>
+</div>
+<br>
+<br>
+<br>
+<div align="center">
+<a type="button" href="{{ url_for('add') }}">Add Student</a> &nbsp; &nbsp;
+<a type="button" href="{{ url_for('remove') }}" >Remove Student</a>
+
+</body>
+</html>
+ 
